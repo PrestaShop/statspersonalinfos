@@ -37,15 +37,15 @@ class statspersonalinfos extends ModuleGraph
     {
         $this->name = 'statspersonalinfos';
         $this->tab = 'analytics_stats';
-        $this->version = '1.4.0';
+        $this->version = '2.0.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
         parent::__construct();
 
-        $this->displayName = $this->l('Registered customer information');
-        $this->description = $this->l('Adds information about your registered customers (such as gender and age) to the Stats dashboard.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+        $this->displayName = $this->trans('Registered customer information', array(), 'Modules.Statspersonalinfos.Admin');
+        $this->description = $this->trans('Adds information about your registered customers (such as gender and age) to the Stats dashboard.', array(), 'Modules.Statspersonalinfos.Admin');
+        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
     }
 
     public function install()
@@ -59,23 +59,23 @@ class statspersonalinfos extends ModuleGraph
 			<div class="panel-heading">
 				'.$this->displayName.'
 			</div>
-			<h4>'.$this->l('Guide').'</h4>
+			<h4>'.$this->trans('Guide', array(), 'Admin.Global').'</h4>
 			<div class="alert alert-warning">
-				<h4>'.$this->l('Target your audience').'</h4>
+				<h4>'.$this->trans('Target your audience', array(), 'Modules.Statspersonalinfos.Admin').'</h4>
 				<p>'.
-                    $this->l('In order for each message to have an impact, you need to know who it is being addressed to. ').
+                    $this->trans('In order for each message to have an impact, you need to know who it is being addressed to. ', array(), 'Modules.Statspersonalinfos.Admin').
                     '<br>'.
-                    $this->l('Defining your target audience is essential when choosing the right tools to win them over.').
+                    $this->trans('Defining your target audience is essential when choosing the right tools to win them over.', array(), 'Modules.Statspersonalinfos.Admin').
                     '<br>'.
-                    $this->l('It is best to limit an action to a group -- or to groups -- of clients.').
+                    $this->trans('It is best to limit an action to a group -- or to groups -- of clients.', array(), 'Modules.Statspersonalinfos.Admin').
                     '<br>'.
-                    $this->l('Storing registered customer information allows you to accurately define customer profiles so you can adapt your special deals and promotions.').'
+                    $this->trans('Storing registered customer information allows you to accurately define customer profiles so you can adapt your special deals and promotions.', array(), 'Modules.Statspersonalinfos.Admin').'
 				</p>
 				<div>
-					'.$this->l('You can increase your sales by:').'
+					'.$this->trans('You can increase your sales by:', array(), 'Modules.Statspersonalinfos.Admin').'
 					<ul>
-						<li class="bullet">'.$this->l('Launching targeted advertisement campaigns.').'</li>
-						<li class="bullet">'.$this->l('Contacting a group of clients by email or newsletter.').'</li>
+						<li class="bullet">'.$this->trans('Launching targeted advertisement campaigns.', array(), 'Modules.Statspersonalinfos.Admin').'</li>
+						<li class="bullet">'.$this->trans('Contacting a group of clients by email or newsletter.', array(), 'Modules.Statspersonalinfos.Admin').'</li>
 					</ul>
 				</div>
 			</div>';
@@ -120,10 +120,10 @@ class statspersonalinfos extends ModuleGraph
                 )).'
 						</div>
 						<div class="col-lg-4">
-							<p>'.$this->l('Gender distribution allows you to determine the percentage of men and women shoppers on your store.').'</p>
+							<p>'.$this->trans('Gender distribution allows you to determine the percentage of men and women shoppers on your store.', array(), 'Modules.Statspersonalinfos.Admin').'</p>
 							<hr/>
 							<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=gender').'">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statspersonalinfos.Admin').'
 							</a>
 						</div>
 					</div>
@@ -137,10 +137,10 @@ class statspersonalinfos extends ModuleGraph
                 )).'
 						</div>
 						<div class="col-lg-4">
-							<p>'.$this->l('Age ranges allow you to better understand target demographics.').'</p>
+							<p>'.$this->trans('Age ranges allow you to better understand target demographics.', array(), 'Modules.Statspersonalinfos.Admin').'</p>
 							<hr/>
 							<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=age').'">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statspersonalinfos.Admin').'
 							</a>
 						</div>
 					</div>
@@ -154,10 +154,10 @@ class statspersonalinfos extends ModuleGraph
                 )).'
 						</div>
 						<div class="col-lg-4">
-							<p>'.$this->l('Country distribution allows you to analyze which part of the World your customers are shopping from.').'</p>
+							<p>'.$this->trans('Country distribution allows you to analyze which part of the World your customers are shopping from.', array(), 'Modules.Statspersonalinfos.Admin').'</p>
 							<hr/>
 							<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=country').'">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statspersonalinfos.Admin').'
 							</a>
 						</div>
 					</div>
@@ -171,10 +171,10 @@ class statspersonalinfos extends ModuleGraph
                 )).'
 						</div>
 						<div class="col-lg-4">
-							<p>'.$this->l('Currency range allows you to determine which currency your customers are using.').'</p>
+							<p>'.$this->trans('Currency range allows you to determine which currency your customers are using.', array(), 'Modules.Statspersonalinfos.Admin').'</p>
 							<hr/>
 							<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=currency').'">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statspersonalinfos.Admin').'
 							</a>
 						</div>
 					</div>
@@ -188,16 +188,16 @@ class statspersonalinfos extends ModuleGraph
                 )).'
 						</div>
 						<div class="col-lg-4">
-							<p>'.$this->l('Language distribution allows you to analyze the browsing language used by your customers.').'</p>
+							<p>'.$this->trans('Language distribution allows you to analyze the browsing language used by your customers.', array(), 'Modules.Statspersonalinfos.Admin').'</p>
 							<hr/>
 							<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1&exportType=language').'">
-								<i class="icon-cloud-upload"></i> '.$this->l('CSV Export').'
+								<i class="icon-cloud-upload"></i> '.$this->trans('CSV Export', array(), 'Modules.Statspersonalinfos.Admin').'
 							</a>
 						</div>
 					</div>
 				</div>';
         } else {
-            $this->html .= '<p>'.$this->l('No customers have registered yet.').'</p>';
+            $this->html .= '<p>'.$this->trans('No customers have registered yet.', array(), 'Modules.Statspersonalinfos.Admin').'</p>';
         }
 
         return $this->html;
@@ -212,11 +212,11 @@ class statspersonalinfos extends ModuleGraph
     {
         switch ($this->option) {
             case 'gender':
-                $this->_titles['main'] = $this->l('Gender distribution');
+                $this->_titles['main'] = $this->trans('Gender distribution', array(), 'Modules.Statspersonalinfos.Admin');
                 $genders = array(
-                    0 => $this->l('Male'),
-                    1 => $this->l('Female'),
-                    2 => $this->l('Unknown'),
+                    0 => $this->trans('Male', array(), 'Admin.ShopParameters.Feature'),
+                    1 => $this->trans('Female', array(), 'Admin.ShopParameters.Feature'),
+                    2 => $this->trans('Unknown', array(), 'Admin.ShopParameters.Feature'),
                 );
 
                 $sql = 'SELECT g.type, c.id_gender, COUNT(c.id_customer) AS total
@@ -243,7 +243,7 @@ class statspersonalinfos extends ModuleGraph
                 break;
 
             case 'age':
-                $this->_titles['main'] = $this->l('Age range');
+                $this->_titles['main'] = $this->trans('Age range', array(), 'Modules.Statspersonalinfos.Admin');
 
                 // 0 - 18 years
                 $sql = 'SELECT COUNT(`id_customer`) as total
@@ -254,7 +254,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('0-18');
+                    $this->_legend[] = $this->trans('0-18', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // 18 - 24 years
@@ -267,7 +267,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('18-24');
+                    $this->_legend[] = $this->trans('18-24', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // 25 - 34 years
@@ -280,7 +280,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('25-34');
+                    $this->_legend[] = $this->trans('25-34', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // 35 - 49 years
@@ -293,7 +293,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('35-49');
+                    $this->_legend[] = $this->trans('35-49', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // 50 - 59 years
@@ -306,7 +306,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('50-59');
+                    $this->_legend[] = $this->trans('50-59', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // More than 60 years
@@ -318,7 +318,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('60+');
+                    $this->_legend[] = $this->trans('60+', array(), 'Modules.Statspersonalinfos.Admin');
                 }
 
                 // Total unknown
@@ -329,12 +329,12 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->l('Unknown');
+                    $this->_legend[] = $this->trans('Unknown', array(), 'Admin.ShopParameters.Feature');
                 }
                 break;
 
             case 'country':
-                $this->_titles['main'] = $this->l('Country distribution');
+                $this->_titles['main'] = $this->trans('Country distribution', array(), 'Modules.Statspersonalinfos.Admin');
                 $sql = 'SELECT cl.`name`, COUNT(c.`id_country`) AS total
 						FROM `'._DB_PREFIX_.'address` a
 						LEFT JOIN `'._DB_PREFIX_.'customer` cu ON cu.id_customer = a.id_customer
@@ -351,7 +351,7 @@ class statspersonalinfos extends ModuleGraph
                 break;
 
             case 'currency':
-                $this->_titles['main'] = $this->l('Currency distribution');
+                $this->_titles['main'] = $this->trans('Currency distribution', array(), 'Modules.Statspersonalinfos.Admin');
                 $sql = 'SELECT c.`name`, COUNT(c.`id_currency`) AS total
 						FROM `'._DB_PREFIX_.'orders` o
 						LEFT JOIN `'._DB_PREFIX_.'currency` c ON o.`id_currency` = c.`id_currency`
@@ -366,7 +366,7 @@ class statspersonalinfos extends ModuleGraph
                 break;
 
             case 'language':
-                $this->_titles['main'] = $this->l('Language distribution');
+                $this->_titles['main'] = $this->trans('Language distribution', array(), 'Modules.Statspersonalinfos.Admin');
                 $sql = 'SELECT c.`name`, COUNT(c.`id_lang`) AS total
 						FROM `'._DB_PREFIX_.'orders` o
 						LEFT JOIN `'._DB_PREFIX_.'lang` c ON o.`id_lang` = c.`id_lang`
