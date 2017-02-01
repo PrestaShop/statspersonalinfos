@@ -214,9 +214,9 @@ class statspersonalinfos extends ModuleGraph
             case 'gender':
                 $this->_titles['main'] = $this->trans('Gender distribution', array(), 'Modules.Statspersonalinfos.Admin');
                 $genders = array(
-                    0 => $this->trans('Male', array(), 'Admin.ShopParameters.Feature'),
-                    1 => $this->trans('Female', array(), 'Admin.ShopParameters.Feature'),
-                    2 => $this->trans('Unknown', array(), 'Admin.ShopParameters.Feature'),
+                    0 => $this->trans('Male', array(), 'Admin.Shopparameters.Feature'),
+                    1 => $this->trans('Female', array(), 'Admin.Shopparameters.Feature'),
+                    2 => $this->trans('Unknown', array(), 'Admin.Shopparameters.Feature'),
                 );
 
                 $sql = 'SELECT g.type, c.id_gender, COUNT(c.id_customer) AS total
@@ -329,7 +329,7 @@ class statspersonalinfos extends ModuleGraph
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
-                    $this->_legend[] = $this->trans('Unknown', array(), 'Admin.ShopParameters.Feature');
+                    $this->_legend[] = $this->trans('Unknown', array(), 'Admin.Shopparameters.Feature');
                 }
                 break;
 
