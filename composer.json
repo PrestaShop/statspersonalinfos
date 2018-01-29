@@ -2,7 +2,7 @@
   "name": "prestashop/statspersonalinfos",
   "description": "PrestaShop module statspersonalinfos",
   "homepage": "https://github.com/PrestaShop/statspersonalinfos",
-  "license": "AFL - Academic Free License (AFL 3.0)",
+  "license": "AFL-3.0",
   "authors": [
     {
       "name": "PrestaShop SA",
