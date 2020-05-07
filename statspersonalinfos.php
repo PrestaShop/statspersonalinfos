@@ -346,7 +346,7 @@ class statspersonalinfos extends ModuleGraph
 						FROM `'._DB_PREFIX_.'address` a
 						LEFT JOIN `'._DB_PREFIX_.'customer` cu ON cu.id_customer = a.id_customer
 						LEFT JOIN `'._DB_PREFIX_.'country` c ON a.`id_country` = c.`id_country`
-						LEFT JOIN `'._DB_PREFIX_.'country_lang` cl ON (c.`id_country` = cl.`id_country` AND cl.`id_lang` = '.(int)$this->context->language->id.')
+						LEFT JOIN `'._DB_PREFIX_.'country_lang` cl ON (c.`id_country` = cl.`id_country` AND cl.`id_lang` = ' . (int) $this->context->language->id . ')
 						WHERE a.id_customer != 0
 							'.Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'cu').'
 						GROUP BY c.`id_country`';
@@ -359,16 +359,17 @@ class statspersonalinfos extends ModuleGraph
 
             case 'currency':
                 $this->_titles['main'] = $this->trans('Currency distribution', array(), 'Modules.Statspersonalinfos.Admin');
-                $sql = 'SELECT c.`iso_code`, COUNT(c.`id_currency`) AS total
+                $sql = 'SELECT cl.name, c.`iso_code`, COUNT(c.`id_currency`) AS total
 						FROM `'._DB_PREFIX_.'orders` o
 						LEFT JOIN `'._DB_PREFIX_.'currency` c ON o.`id_currency` = c.`id_currency`
+						LEFT JOIN `'._DB_PREFIX_.'currency_lang` cl ON (cl.`id_currency` = c.`id_currency` AND cl.`id_lang` = ' . (int) $this->context->language->id . ')
 						WHERE 1
 							'.Shop::addSqlRestriction(Shop::SHARE_ORDER, 'o').'
 						GROUP BY c.`id_currency`';
                 $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
                 foreach ($result as $row) {
                     $this->_values[] = $row['total'];
-                    $this->_legend[] = $row['iso_code'];
+                    $this->_legend[] = $row['name'] . ' (' . $row['iso_code'] . ')';
                 }
                 break;
 
