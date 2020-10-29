@@ -44,7 +44,7 @@ class statspersonalinfos extends ModuleGraph
         parent::__construct();
 
         $this->displayName = $this->trans('Registered customer information', array(), 'Modules.Statspersonalinfos.Admin');
-        $this->description = $this->trans('Adds information about your registered customers (such as gender and age) to the Stats dashboard.', array(), 'Modules.Statspersonalinfos.Admin');
+        $this->description = $this->trans('Enrich your stats, add information about your registered customers and learn more about them!', array(), 'Modules.Statspersonalinfos.Admin');
         $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
     }
 
