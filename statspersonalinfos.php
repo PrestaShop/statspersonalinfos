@@ -37,7 +37,7 @@ class statspersonalinfos extends ModuleGraph
     {
         $this->name = 'statspersonalinfos';
         $this->tab = 'analytics_stats';
-        $this->version = '2.0.3';
+        $this->version = '2.0.4';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
@@ -50,10 +50,10 @@ class statspersonalinfos extends ModuleGraph
 
     public function install()
     {
-        return (parent::install() && $this->registerHook('AdminStatsModules'));
+        return (parent::install() && $this->registerHook('displayAdminStatsModules'));
     }
 
-    public function hookAdminStatsModules()
+    public function hookDisplayAdminStatsModules()
     {
         $this->html = '
 			<div class="panel-heading">
