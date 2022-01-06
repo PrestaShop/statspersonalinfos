@@ -2,7 +2,6 @@ GitHub contributors:
 --------------------------------
  - Damien Metzger
  - Francois Gaillard
- - Jerome Nadaud
  - Jérôme Nadaud
  - Matt75
  - Maxime Biloé
