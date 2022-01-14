@@ -36,7 +36,7 @@ class statspersonalinfos extends ModuleGraph
     public function __construct()
     {
         $this->name = 'statspersonalinfos';
-        $this->tab = 'analytics_stats';
+        $this->tab = 'administration';
         $this->version = '2.0.4';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
