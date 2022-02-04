@@ -224,7 +224,7 @@ class statspersonalinfos extends ModuleGraph
 						WHERE 1
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'c') . '
 						GROUP BY c.id_gender';
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($sql);
 
                 $genders_results = [];
                 foreach ($result as $row) {
@@ -251,7 +251,7 @@ class statspersonalinfos extends ModuleGraph
 							AND `birthday` != "0000-00-00"
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) < 18
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('0-18', [], 'Modules.Statspersonalinfos.Admin');
@@ -265,7 +265,7 @@ class statspersonalinfos extends ModuleGraph
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) >= 18
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) < 25
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('18-24', [], 'Modules.Statspersonalinfos.Admin');
@@ -279,7 +279,7 @@ class statspersonalinfos extends ModuleGraph
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) >= 25
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) < 35
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('25-34', [], 'Modules.Statspersonalinfos.Admin');
@@ -293,7 +293,7 @@ class statspersonalinfos extends ModuleGraph
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) >= 35
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) < 50
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('35-49', [], 'Modules.Statspersonalinfos.Admin');
@@ -307,7 +307,7 @@ class statspersonalinfos extends ModuleGraph
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) >= 50
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) < 60
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('50-59', [], 'Modules.Statspersonalinfos.Admin');
@@ -320,7 +320,7 @@ class statspersonalinfos extends ModuleGraph
 							AND `birthday` != "0000-00-00"
 							AND (YEAR(CURDATE()) - YEAR(`birthday`)) - (RIGHT(CURDATE(), 5) < RIGHT(`birthday`, 5)) >= 60
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('60+', [], 'Modules.Statspersonalinfos.Admin');
@@ -332,7 +332,7 @@ class statspersonalinfos extends ModuleGraph
 						WHERE `birthday` IS NULL
 							OR `birthday` = "0000-00-00"
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER);
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
                 if (isset($result['total']) && $result['total']) {
                     $this->_values[] = $result['total'];
                     $this->_legend[] = $this->trans('Unknown', [], 'Admin.Shopparameters.Feature');
@@ -349,7 +349,7 @@ class statspersonalinfos extends ModuleGraph
 						WHERE a.id_customer != 0
 							' . Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'cu') . '
 						GROUP BY c.`id_country`';
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($sql);
                 foreach ($result as $row) {
                     $this->_values[] = $row['total'];
                     $this->_legend[] = $row['name'];
@@ -365,7 +365,7 @@ class statspersonalinfos extends ModuleGraph
 						WHERE 1
 							' . Shop::addSqlRestriction(Shop::SHARE_ORDER, 'o') . '
 						GROUP BY c.`id_currency`';
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($sql);
                 foreach ($result as $row) {
                     $this->_values[] = $row['total'];
                     $this->_legend[] = $row['name'] . ' (' . $row['iso_code'] . ')';
@@ -380,7 +380,7 @@ class statspersonalinfos extends ModuleGraph
 						WHERE 1
 							' . Shop::addSqlRestriction(Shop::SHARE_ORDER, 'o') . '
 						GROUP BY c.`id_lang`';
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+                $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($sql);
                 foreach ($result as $row) {
                     $this->_values[] = $row['total'];
                     $this->_legend[] = $row['name'];
