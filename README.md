@@ -8,6 +8,13 @@ Enrich your stats, add information about your registered customers and learn mor
 
 PrestaShop: `1.7.1.0` or later
 
+## How to test
+
+Link to specs : https://docs.prestashop-project.org/functional-documentation/functional-documentation/ux-ui/back-office/improve/modules/registered-customer-information
+
+Link to test scenario: https://build.prestashop-project.org/test-scenarios/scenarios/modules/statspersonalinfos.html
+
+If the module is enabled , check that in the BO > menu Stats that the registered customers information can be sorted by date, and can export the data.
 ## Reporting issues
 
 You can report issues with this module in the main PrestaShop repository. [Click here to report an issue][report-issue]. 
